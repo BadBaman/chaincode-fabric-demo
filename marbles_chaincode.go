@@ -135,7 +135,7 @@ func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface) pb.Response {
 	// Handle different functions
 	if function == "initApplicationRecord" { //create a new marble
 		return t.initApplicationRecord(stub, args)
-	} else if function == "ApplicationRecord" { //change owner of a specific marble
+	} else if function == "transferApplicationRecord" { //change owner of a specific marble
 		return t.transferApplicationRecord(stub, args)
 	} else if function == "transferApplicationRecordsBasedOnApplicant" { //transfer all marbles of a certain color
 		return t.transferApplicationRecordsBasedOnApplicant(stub, args)
