@@ -135,21 +135,21 @@ func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface) pb.Response {
 	// Handle different functions
 	if function == "initApplicationRecord" { //create a new marble
 		return t.initApplicationRecord(stub, args)
-	} else if function == "transferMarble" { //change owner of a specific marble
+	} else if function == "ApplicationRecord" { //change owner of a specific marble
 		return t.transferApplicationRecord(stub, args)
 	} else if function == "transferMarblesBasedOnColor" { //transfer all marbles of a certain color
 		return t.transferApplicationRecordsBasedOnApplicant(stub, args)
 	} else if function == "delete" { //delete a marble
 		return t.delete(stub, args)
-	} else if function == "readMarble" { //read a marble
+	} else if function == "readApplicationRecord" { //read a marble
 		return t.readApplicationRecord(stub, args)
-	} else if function == "queryMarblesByOwner" { //find marbles for owner X using rich query
+	} else if function == "queryApplicationRecordsByNoticer" { //find marbles for owner X using rich query
 		return t.queryApplicationRecordsByApplicant(stub, args)
-	} else if function == "queryMarbles" { //find marbles based on an ad hoc rich query
+	} else if function == "queryApplicationRecords" { //find marbles based on an ad hoc rich query
 		return t.queryApplicationRecords(stub, args)
-	} else if function == "getHistoryForMarble" { //get history of values for a marble
+	} else if function == "getHistoryForApplicationRecord" { //get history of values for a marble
 		return t.getHistoryForApplicationRecord(stub, args)
-	} else if function == "getMarblesByRange" { //get marbles based on range query
+	} else if function == "getApplicationRecordsByRange" { //get marbles based on range query
 		return t.getApplicationRecordsByRange(stub, args)
 	}
 
