@@ -137,13 +137,13 @@ func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface) pb.Response {
 		return t.initApplicationRecord(stub, args)
 	} else if function == "ApplicationRecord" { //change owner of a specific marble
 		return t.transferApplicationRecord(stub, args)
-	} else if function == "transferMarblesBasedOnColor" { //transfer all marbles of a certain color
+	} else if function == "transferApplicationRecordsBasedOnApplicant" { //transfer all marbles of a certain color
 		return t.transferApplicationRecordsBasedOnApplicant(stub, args)
 	} else if function == "delete" { //delete a marble
 		return t.delete(stub, args)
 	} else if function == "readApplicationRecord" { //read a marble
 		return t.readApplicationRecord(stub, args)
-	} else if function == "queryApplicationRecordsByNoticer" { //find marbles for owner X using rich query
+	} else if function == "queryApplicationRecordsByApplicant" { //find marbles for owner X using rich query
 		return t.queryApplicationRecordsByApplicant(stub, args)
 	} else if function == "queryApplicationRecords" { //find marbles based on an ad hoc rich query
 		return t.queryApplicationRecords(stub, args)
