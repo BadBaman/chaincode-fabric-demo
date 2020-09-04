@@ -166,7 +166,7 @@ func (t *SimpleChaincode) initApplicationRecord(stub shim.ChaincodeStubInterface
 	//   0       1       2     3
 	// "asdf", "blue", "35", "bob"
 	if len(args) != 16 {
-		return shim.Error("Incorrect number of arguments. Expecting 17")
+		return shim.Error("Incorrect number of arguments. Expecting 16")
 	}
 
 	// ==== Input sanitation ====
@@ -247,7 +247,7 @@ func (t *SimpleChaincode) initApplicationRecord(stub shim.ChaincodeStubInterface
 	}
 
 	// ==== Create marble object and marshal to JSON ====
-	objectType := "marble"
+	objectType := "applicationrecord"
 	ApplicationRecord := &applicationrecord{objectType, Dataset,Applicant ,Noticer, Noticetime, Confirmor, Confirmtime,Omicsoriginalresultprovider,Omicsoriginalapplicationreceivedtime,Omicsanalysisresultprovider,Omicsapplicationreceivedtime,Phenotypicdataprovider,Phenotypicapplicationreceivedtime,Datadeliverytime,Datadeliverymethod,Deliverer,Deliverercontactinformation}
 
 	applicationRecordJSONasBytes, err := json.Marshal(ApplicationRecord)
@@ -270,7 +270,7 @@ func (t *SimpleChaincode) initApplicationRecord(stub shim.ChaincodeStubInterface
 	//  In our case, the composite key is based on indexName~color~name.
 	//  This will enable very efficient state range queries based on composite keys matching indexName~color~*
 	indexName := "Applicant~Dataset"
-	ApplicantDatasetIndexKey, err := stub.CreateCompositeKey(indexName, []string{ApplicationRecord.Applicant, applicationrecord.Dataset})
+	ApplicantDatasetIndexKey, err := stub.CreateCompositeKey(indexName, []string{ApplicationRecord.Applicant, ApplicationRecord.Dataset})
 	if err != nil {
 		return shim.Error(err.Error())
 	}
